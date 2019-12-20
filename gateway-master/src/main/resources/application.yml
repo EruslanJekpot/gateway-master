@@ -14,32 +14,32 @@ spring:
           filters:
             - StripPrefix=1
         - id: event_auth
-          uri: http://localhost:8091
+          uri: https://eventmicroservice.herokuapp.com
           predicates:
             - Path=/event/save/organization
           filters:
             - StripPrefix=1
         - id: chat_auth
-          uri: http://localhost:8092
+          uri: https://chatmicroservice.herokuapp.com
           predicates:
             - Path=/chat/save/attendee
           filters:
             - StripPrefix=1
         - id: event
-          uri: http://localhost:8091
+          uri: https://eventmicroservice.herokuapp.com
           predicates:
             - Path=/event/**
           filters:
             - StripPrefix=1
             - GatewayTokenFilter
         - id: chat
-          uri: http://localhost:8092
+          uri: https://chatmicroservice.herokuapp.com
           predicates:
             - Path=/chat/**
           filters:
             - StripPrefix=1
             - GatewayTokenFilter
         - id: websocket
-          uri: http://localhost:8092
+          uri: https://chatmicroservice.herokuapp.com
           predicates:
             - Path=/ws/**
